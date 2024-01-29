@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: roboto;
+  height: 100vh;
+  background-color: #f3f3f3;
+}

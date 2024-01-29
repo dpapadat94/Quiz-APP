@@ -1,0 +1,42 @@
+export const quizData = [
+  {
+    question: "What is the name of the World's largest ocean?",
+    answer1: "Atlantic ",
+    answer2: "Pacific",
+    answer3: "Indian",
+    answer4: "Arctic",
+    correctAns: 2,
+  },
+  {
+    question: "Havana is the capital of what country?",
+    answer1: "Cuba ",
+    answer2: "Mexico",
+    answer3: "Peru",
+    answer4: "Canada",
+    correctAns: 1,
+  },
+  {
+    question: "How many hearts does an octopus have?",
+    answer1: "8 ",
+    answer2: "1",
+    answer3: "5",
+    answer4: "3",
+    correctAns: 4,
+  },
+  {
+    question: "What is the largest planet in the solar system?",
+    answer1: "Mercury ",
+    answer2: "Jupiter",
+    answer3: "Earth",
+    answer4: "Venus",
+    correctAns: 2,
+  },
+  {
+    question: "How many teeth does an adult human have?",
+    answer1: "28 ",
+    answer2: "34",
+    answer3: "32",
+    answer4: "30",
+    correctAns: 3,
+  },
+];
