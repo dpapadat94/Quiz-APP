@@ -116,7 +116,7 @@ function Quiz() {
         <>
           <h2>{(score / quizData.length) * 100 >= 80 && "Great Job!"}</h2>
           <h2>
-            {(score / quizData.length) * 100 < 80 && "Better Luck Next time!"}
+            {(score / quizData.length) * 100 < 80 && "Better Luck Next Time!"}
           </h2>
           <div className="results">
             <p>
