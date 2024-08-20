@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import "./Quiz.css";
 import { quizData } from "../../assets/quizData";
+import newgame from "../../assets/newgame.png";
+import health from "../../assets/health.png";
 
 function Quiz() {
   let [index, setIndex] = useState(0);
@@ -53,84 +55,95 @@ function Quiz() {
     setScore(0);
     setanswered(false);
     setResult(false);
+
+    choiceArray.forEach((choice) => {
+      choice.current.classList.remove("wrong");
+      choice.current.classList.remove("correct");
+    });
   };
 
   return (
-    <div className="container">
-      <h1>General Knowledge Trivia</h1>
+    <div className="wrapper">
+      <div className="container">
+        <div className="top-bar">
+          <img onClick={reset} className="icon" src={newgame} alt="" />
+          <img className="icon" src={health} alt="" />
+        </div>
+        <h1>Video Game Trivia</h1>
 
-      {result ? (
-        <></>
-      ) : (
-        <>
-          <h2>
-            {index + 1}. {question.question}{" "}
-          </h2>
-          <ul>
-            <div className="li-box">
-              <li
-                ref={choice1}
-                onClick={(e) => {
-                  checkAns(e, 1);
-                }}
-              >
-                {question.answer1}
-              </li>
-              <li
-                ref={choice2}
-                onClick={(e) => {
-                  checkAns(e, 2);
-                }}
-              >
-                {question.answer2}
-              </li>
+        {result ? (
+          <></>
+        ) : (
+          <>
+            <h3 className="question-wrapper">
+              {index + 1}. {question.question}{" "}
+            </h3>
+            <ul>
+              <div className="li-box">
+                <li
+                  ref={choice1}
+                  onClick={(e) => {
+                    checkAns(e, 1);
+                  }}
+                >
+                  {question.answer1}
+                </li>
+                <li
+                  ref={choice2}
+                  onClick={(e) => {
+                    checkAns(e, 2);
+                  }}
+                >
+                  {question.answer2}
+                </li>
+              </div>
+              <div className="li-box">
+                <li
+                  ref={choice3}
+                  onClick={(e) => {
+                    checkAns(e, 3);
+                  }}
+                >
+                  {question.answer3}
+                </li>
+                <li
+                  ref={choice4}
+                  onClick={(e) => {
+                    checkAns(e, 4);
+                  }}
+                >
+                  {question.answer4}
+                </li>
+              </div>
+            </ul>
+            <div className="footer-box">
+              <div className="index">
+                Question {index + 1} of {quizData.length}
+              </div>
+              <button onClick={next}>Next</button>
             </div>
-            <div className="li-box">
-              <li
-                ref={choice3}
-                onClick={(e) => {
-                  checkAns(e, 3);
-                }}
-              >
-                {question.answer3}
-              </li>
-              <li
-                ref={choice4}
-                onClick={(e) => {
-                  checkAns(e, 4);
-                }}
-              >
-                {question.answer4}
-              </li>
+          </>
+        )}
+        {result ? (
+          <>
+            <h2>{(score / quizData.length) * 100 >= 80 && "Great Job!"}</h2>
+            <h2>
+              {(score / quizData.length) * 100 < 80 && "Better Luck Next Time!"}
+            </h2>
+            <div className="results">
+              <p>
+                You answered {score} out of {quizData.length} correct{" "}
+              </p>
+              <h2>{(score / quizData.length) * 100}%</h2>
             </div>
-          </ul>
-          <div className="footer-box">
-            <div className="index">
-              Question {index + 1} of {quizData.length}
-            </div>
-            <button onClick={next}>Next</button>
-          </div>
-        </>
-      )}
-      {result ? (
-        <>
-          <h2>{(score / quizData.length) * 100 >= 80 && "Great Job!"}</h2>
-          <h2>
-            {(score / quizData.length) * 100 < 80 && "Better Luck Next Time!"}
-          </h2>
-          <div className="results">
-            <p>
-              You answered {score} out of {quizData.length} correct{" "}
-            </p>
-            <h2>{(score / quizData.length) * 100}%</h2>
-          </div>
-          <button className="restart" onClick={reset}>
-            Reset
-          </button>
-        </>
-      ) : (
-        <></>
-      )}
+            <button className="restart" onClick={reset}>
+              Reset
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }

@@ -2,8 +2,13 @@
   margin: 0;
   padding: 0;
 }
+html {
+  box-sizing: border-box;
+}
 body {
   font-family: roboto;
-  height: 100vh;
-  background-color: #f3f3f3;
+  background: url("./assets/bgretro.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
